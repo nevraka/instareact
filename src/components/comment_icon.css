@@ -23,3 +23,8 @@ i.pull-right {
   margin-left: auto;
   margin-right: 0;
 }
+.add-comment {
+  font-family: fantasy;
+  margin-left: 10px;
+  margin-top: 10px;
+}

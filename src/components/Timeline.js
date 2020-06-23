@@ -9,6 +9,7 @@ const renderPost = (postData) => (
     loc={postData.user.location}
     image={postData.urls.regular}
     profileImage={postData.user.profile_image.small}
+    likeCount={postData.likes}
   />
 );
 
