@@ -1,0 +1,32 @@
+.post-image {
+  width: 100%;
+}
+.title {
+  text-transform: capitalize;
+  margin-left: 12px;
+  margin-block-end: auto;
+  height: 20px;
+}
+.heading {
+  display: flex;
+  align-items: center;
+  padding: 4px 0;
+  padding: 10px;
+}
+.profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  margin-left: 4px;
+}
+.location {
+  color: white;
+  height: 18px;
+  font-size: small;
+}
+.cb {
+  height: 30px;
+}
+.like {
+  height: 30px;
+}
