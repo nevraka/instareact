@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./post.css";
 import Comments from "./Comments";
 import Buttons from "./Buttons";
@@ -9,6 +9,13 @@ const Post = ({ title, image, profileImage, loc, likeCount }) => {
   const [showInput, setShowInput] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
   const [comments, setComments] = useState([]);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (showInput && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [showInput]);
 
   const onToggleLike = () => {
     setLiked(!liked);
@@ -44,6 +51,7 @@ const Post = ({ title, image, profileImage, loc, likeCount }) => {
           showInput={showInput}
           comments={comments}
           setComments={setComments}
+          inputRef={inputRef}
         />
       </div>
     </>

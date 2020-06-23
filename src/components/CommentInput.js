@@ -1,9 +1,10 @@
 import React from "react";
 
-const CommentInput = ({ showInput, comments, setComments }) => {
+const CommentInput = ({ showInput, comments, setComments, inputRef }) => {
   return showInput ? (
     <div>
       <input
+        ref={inputRef}
         className="comment-input"
         onKeyDown={(event) => {
           if (event.key === "Enter") {
