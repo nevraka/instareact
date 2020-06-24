@@ -14,12 +14,16 @@ const Comments = (props) => {
       ) : showAllComments ? (
         <>
           {props.comments.map((c) => {
-            return <div>{c}</div>;
+            return <div className={"stay-comment"}>{c}</div>;
           })}
-          <div onClick={onToogleShowAllComments}>Hide comments</div>
+          <div className={"hide-comment"} onClick={onToogleShowAllComments}>
+            Hide comments
+          </div>
         </>
       ) : (
-        <div onClick={onToogleShowAllComments}>View all comments</div>
+        <div className={"view comments"} onClick={onToogleShowAllComments}>
+          View all comments
+        </div>
       )}
     </>
   );

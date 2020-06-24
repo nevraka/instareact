@@ -4,7 +4,7 @@ import Comments from "./Comments";
 import Buttons from "./Buttons";
 import CommentInput from "./CommentInput";
 
-const Post = ({ title, image, profileImage, loc, likeCount }) => {
+const Post = ({ title, image, profileImage, loc, likeCount, description }) => {
   const [liked, setLiked] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
@@ -37,23 +37,22 @@ const Post = ({ title, image, profileImage, loc, likeCount }) => {
         </div>
       </div>
       <img alt="" src={image} className="post-image" />
+      <Buttons
+        liked={liked}
+        bookmarked={bookmarked}
+        onToggleShowInput={onToggleShowInput}
+        onToggleLike={onToggleLike}
+        onBookmark={onBookmark}
+      />
       <div className="count">{likeCount + " likes"}</div>
-      <div>
-        <Buttons
-          liked={liked}
-          bookmarked={bookmarked}
-          onToggleShowInput={onToggleShowInput}
-          onToggleLike={onToggleLike}
-          onBookmark={onBookmark}
-        />
-        <Comments comments={comments} onToggleShowInput={onToggleShowInput} />
-        <CommentInput
-          showInput={showInput}
-          comments={comments}
-          setComments={setComments}
-          inputRef={inputRef}
-        />
-      </div>
+      {description && <div className="description-css">{description}</div>}
+      <Comments comments={comments} onToggleShowInput={onToggleShowInput} />
+      <CommentInput
+        showInput={showInput}
+        comments={comments}
+        setComments={setComments}
+        inputRef={inputRef}
+      />
     </>
   );
 };
