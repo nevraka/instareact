@@ -13,6 +13,8 @@ const Timeline = ({ images }) => (
         profileImage={image.user.profile_image.small}
         likeCount={image.likes}
         description={image.description}
+        tags={image.tags}
+        createdat={image.created_at}
       />
     ))}
   </div>

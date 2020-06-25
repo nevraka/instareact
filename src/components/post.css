@@ -43,3 +43,9 @@
   font-size: small;
   margin-bottom: 20px;
 }
+.right-floated {
+  font-size: smaller;
+}
+.right-floated:hover {
+  background-color: grey;
+}

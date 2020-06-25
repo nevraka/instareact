@@ -2,14 +2,27 @@ import React, { useState, useRef, useEffect } from "react";
 import "./post.css";
 import Comments from "./Comments";
 import Buttons from "./Buttons";
+import AddTags from "./AddTags";
 import CommentInput from "./CommentInput";
+import { format } from "date-fns";
+import FsLightbox from "fslightbox-react";
 
-const Post = ({ title, image, profileImage, loc, likeCount, description }) => {
+const Post = ({
+  title,
+  image,
+  profileImage,
+  loc,
+  likeCount,
+  description,
+  tags,
+  createdat,
+}) => {
   const [liked, setLiked] = useState(false);
   const [showInput, setShowInput] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
   const [comments, setComments] = useState([]);
   const inputRef = useRef(null);
+  const [toggler, setToggler] = useState(false);
 
   useEffect(() => {
     if (showInput && inputRef.current) {
@@ -27,6 +40,8 @@ const Post = ({ title, image, profileImage, loc, likeCount, description }) => {
     setBookmarked(!bookmarked);
   };
 
+  const date = Date.parse(createdat);
+
   return (
     <>
       <div className="heading">
@@ -36,7 +51,16 @@ const Post = ({ title, image, profileImage, loc, likeCount, description }) => {
           <div className="location">{loc}</div>
         </div>
       </div>
-      <img alt="" src={image} className="post-image" />
+      <img
+        onClick={() => setToggler(!toggler)}
+        alt=""
+        src={image}
+        className="post-image"
+      />
+      <span className="right-floated">{`Created at: ${format(
+        date,
+        "dd MMM yyyy"
+      )}`}</span>
       <Buttons
         liked={liked}
         bookmarked={bookmarked}
@@ -46,6 +70,7 @@ const Post = ({ title, image, profileImage, loc, likeCount, description }) => {
       />
       <div className="count">{likeCount + " likes"}</div>
       {description && <div className="description-css">{description}</div>}
+      <AddTags tags={tags} />
       <Comments comments={comments} onToggleShowInput={onToggleShowInput} />
       <CommentInput
         showInput={showInput}
@@ -53,6 +78,7 @@ const Post = ({ title, image, profileImage, loc, likeCount, description }) => {
         setComments={setComments}
         inputRef={inputRef}
       />
+      <FsLightbox toggler={toggler} sources={[image]} />
     </>
   );
 };
