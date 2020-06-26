@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Timeline from "./Timeline";
 import unsplash from "../api/unsplash";
 import SearchBox from "./SearchBox";
+import { BrowserRouter, Route, Switch, useParams } from "react-router-dom";
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -17,11 +18,38 @@ const App = () => {
     onSearch("random");
   }, []);
 
-  return (
+  const Home = () => (
     <div>
       <SearchBox onSearch={onSearch} />
       <Timeline images={images} />
     </div>
+  );
+
+  const LightBox = () => {
+    let { id } = useParams();
+
+    const foundImage = images.find((image) => {
+      return image.id === id;
+    });
+
+    return (
+      <div className="light-box">
+        {foundImage && <img src={foundImage.urls.regular} />}
+      </div>
+    );
+  };
+
+  return (
+    <BrowserRouter>
+      <div>
+        <Switch>
+          <Route path="/post/:id">
+            <LightBox />
+          </Route>
+          <Route path="/" component={Home} exact />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 };
 

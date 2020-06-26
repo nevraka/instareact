@@ -7,6 +7,7 @@ const Timeline = ({ images }) => (
     {images.map((image) => (
       <Post
         key={image.id}
+        id={image.id}
         title={image.user.name}
         loc={image.user.location}
         image={image.urls.regular}

@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./post.css";
 import Comments from "./Comments";
 import Buttons from "./Buttons";
 import AddTags from "./AddTags";
 import CommentInput from "./CommentInput";
 import { format } from "date-fns";
-import FsLightbox from "fslightbox-react";
 
 const Post = ({
+  id,
   title,
   image,
   profileImage,
@@ -22,7 +23,6 @@ const Post = ({
   const [bookmarked, setBookmarked] = useState(false);
   const [comments, setComments] = useState([]);
   const inputRef = useRef(null);
-  const [toggler, setToggler] = useState(false);
 
   useEffect(() => {
     if (showInput && inputRef.current) {
@@ -51,12 +51,9 @@ const Post = ({
           <div className="location">{loc}</div>
         </div>
       </div>
-      <img
-        onClick={() => setToggler(!toggler)}
-        alt=""
-        src={image}
-        className="post-image"
-      />
+      <Link to={`/post/${id}`}>
+        <img alt="" src={image} className="post-image" />
+      </Link>
       <span className="right-floated">{`Created at: ${format(
         date,
         "dd MMM yyyy"
@@ -78,7 +75,6 @@ const Post = ({
         setComments={setComments}
         inputRef={inputRef}
       />
-      <FsLightbox toggler={toggler} sources={[image]} />
     </>
   );
 };
