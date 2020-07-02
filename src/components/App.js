@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Timeline from "./Timeline";
 import unsplash from "../api/unsplash";
 import SearchBox from "./SearchBox";
+import Header from "./Header";
 import { BrowserRouter, Route, Switch, useParams } from "react-router-dom";
 
 const App = () => {
@@ -20,7 +21,7 @@ const App = () => {
 
   const Home = () => (
     <div>
-      <SearchBox onSearch={onSearch} />
+      <Header onSearch={onSearch} />
       <Timeline images={images} />
     </div>
   );

@@ -1,0 +1,22 @@
+.ui-header {
+  display: block;
+  margin-top: 20px;
+  background-color: khaki;
+}
+.logo {
+  height: 30px;
+  width: 100px;
+  margin-top: 20px;
+  margin-left: 20px;
+  display: block;
+}
+.icon-header {
+  position: relative;
+  padding: 15px;
+  display: inline-table;
+  float: right;
+}
+.header-items {
+  display: flex;
+  flex-direction: row;
+}
