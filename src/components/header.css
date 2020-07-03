@@ -20,3 +20,17 @@
   display: flex;
   flex-direction: row;
 }
+
+.google-login {
+  margin: 10px;
+  display: block;
+  flex-direction: row;
+}
+.profile-picture {
+  height: 30px;
+  margin-top: 15px;
+  margin-left: auto;
+  display: block;
+  border-radius: 16px;
+  margin-right: 10px;
+}

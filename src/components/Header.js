@@ -2,12 +2,13 @@ import React from "react";
 import logo from "../image/logo.png";
 import "./header.css";
 import SearchBox from "./SearchBox";
+import LoginButton from "./LoginButton";
 
-const Header = ({ onSearch }) => {
+const Header = ({ onSearch, profile, setProfile }) => {
   return (
     <h2 className="ui-header">
       <div className="header-items">
-        <img className="logo" src={logo}></img>
+        <img className="logo" src={logo} alt="" />
         <SearchBox onSearch={onSearch} />
         <div className="icon-header">
           <i class="home icon"></i>
@@ -15,6 +16,11 @@ const Header = ({ onSearch }) => {
           <i class="compass icon"></i>
           <i class="heart icon"></i>
         </div>
+        {profile.googleId ? (
+          <img className="profile-picture" src={profile.imageUrl} alt="" />
+        ) : (
+          <LoginButton setProfile={setProfile} />
+        )}
       </div>
     </h2>
   );

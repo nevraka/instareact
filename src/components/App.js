@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch, useParams } from "react-router-dom";
 
 const App = () => {
   const [images, setImages] = useState([]);
+  const [profile, setProfile] = useState({});
 
   const onSearch = async (phrase) => {
     const result = await unsplash.get(
@@ -21,7 +22,7 @@ const App = () => {
 
   const Home = () => (
     <div>
-      <Header onSearch={onSearch} />
+      <Header onSearch={onSearch} profile={profile} setProfile={setProfile} />
       <Timeline images={images} />
     </div>
   );
