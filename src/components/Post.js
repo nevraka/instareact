@@ -48,10 +48,10 @@ const Post = ({
         <img className="profile-image" alt="" src={profileImage} />
         <div className="title">
           {title}
-          <span className="paper-plane-icon">
-            <i className="paper plane outline icon"></i>
-          </span>
           <div className="location">{loc}</div>
+        </div>
+        <div className="paper-plane-icon">
+          <i className="paper plane outline icon"></i>
         </div>
       </div>
       <Link to={`/post/${id}`}>

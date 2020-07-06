@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import logo from "../image/logo.png";
 import "./header.css";
 import SearchBox from "./SearchBox";
 import LoginButton from "./LoginButton";
+import UserContext from "./UserContext";
 
-const Header = ({ onSearch, profile, setProfile }) => {
+const Header = ({ onSearch }) => {
+  const user = useContext(UserContext);
+
   return (
     <h2 className="ui-header">
       <div className="header-items">
@@ -16,10 +19,10 @@ const Header = ({ onSearch, profile, setProfile }) => {
           <i class="compass icon"></i>
           <i class="heart icon"></i>
         </div>
-        {profile.googleId ? (
-          <img className="profile-picture" src={profile.imageUrl} alt="" />
+        {user.profile.googleId ? (
+          <img className="profile-picture" src={user.profile.imageUrl} alt="" />
         ) : (
-          <LoginButton setProfile={setProfile} />
+          <LoginButton setProfile={user.setProfile} />
         )}
       </div>
     </h2>

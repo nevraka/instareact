@@ -1,13 +1,20 @@
 import React, { useState, useEffect } from "react";
 import Timeline from "./Timeline";
 import unsplash from "../api/unsplash";
-import SearchBox from "./SearchBox";
 import Header from "./Header";
+import AccountLine from "./AccountLine";
 import { BrowserRouter, Route, Switch, useParams } from "react-router-dom";
+import "./app.css";
+import UserContext from "./UserContext";
 
 const App = () => {
   const [images, setImages] = useState([]);
   const [profile, setProfile] = useState({});
+
+  const user = {
+    profile,
+    setProfile,
+  };
 
   const onSearch = async (phrase) => {
     const result = await unsplash.get(
@@ -22,8 +29,11 @@ const App = () => {
 
   const Home = () => (
     <div>
-      <Header onSearch={onSearch} profile={profile} setProfile={setProfile} />
-      <Timeline images={images} />
+      <Header onSearch={onSearch} />
+      <div className="full">
+        <Timeline images={images} />
+        <AccountLine />
+      </div>
     </div>
   );
 
@@ -42,16 +52,18 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
-      <div>
-        <Switch>
-          <Route path="/post/:id">
-            <LightBox />
-          </Route>
-          <Route path="/" component={Home} exact />
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <UserContext.Provider value={user}>
+      <BrowserRouter>
+        <div>
+          <Switch>
+            <Route path="/post/:id">
+              <LightBox />
+            </Route>
+            <Route path="/" component={Home} exact />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 };
 

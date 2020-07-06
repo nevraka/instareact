@@ -9,6 +9,7 @@
 }
 .heading {
   display: flex;
+  flex-direction: row;
   align-items: center;
   padding: 4px 0;
   padding: 10px;
@@ -50,8 +51,7 @@
   background-color: grey;
 }
 .paper-plane-icon {
-  float: right;
-  position: absolute;
   right: 200px;
   font-size: x-large;
+  margin-left: auto;
 }
