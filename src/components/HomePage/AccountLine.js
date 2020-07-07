@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import LoginButton from "./LoginButton";
-import UserContext from "./UserContext";
+import UserContext from "../../context/UserContext";
 
 const AccountLine = () => {
   const user = useContext(UserContext);
