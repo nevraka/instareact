@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import unsplash from "../api/unsplash";
-import { BrowserRouter, Route, Switch, useParams } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./app.css";
 import UserContext from "./UserContext";
 import HomePage from "./HomePage";
+import ImagePage from "./ImagePage";
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -21,27 +22,13 @@ const App = () => {
     setImages(result.data.results);
   };
 
-  const LightBox = () => {
-    let { id } = useParams();
-
-    const foundImage = images.find((image) => {
-      return image.id === id;
-    });
-
-    return (
-      <div className="light-box">
-        {foundImage && <img src={foundImage.urls.regular} alt="" />}
-      </div>
-    );
-  };
-
   return (
     <UserContext.Provider value={user}>
       <BrowserRouter>
         <div>
           <Switch>
             <Route path="/post/:id">
-              <LightBox />
+              <ImagePage images={images} />
             </Route>
             <Route path="/" exact>
               <HomePage images={images} onSearch={onSearch} />
