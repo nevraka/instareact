@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import "./searchbox.css";
+import { useHistory } from "react-router-dom";
 
-const SearchBox = ({ onSearch }) => {
+const SearchBox = () => {
   const [phrase, setPhrase] = useState("");
+  const history = useHistory();
 
   const handleOnChange = (event) => {
     setPhrase(event.target.value);
   };
 
+  const handleClick = () => {
+    history.push(`/search/${phrase}`);
+  };
+
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      onSearch(phrase);
+      handleClick();
     }
   };
 
@@ -27,9 +33,7 @@ const SearchBox = ({ onSearch }) => {
         <div
           className="ui blue submit button"
           type="submit"
-          onClick={() => {
-            onSearch(phrase);
-          }}
+          onClick={handleClick}
         >
           <i className="search icon"></i>
         </div>
