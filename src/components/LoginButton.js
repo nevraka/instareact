@@ -1,6 +1,5 @@
 import React from "react";
 import GoogleLogin from "react-google-login";
-import App from "./App";
 
 const LoginButton = ({ setProfile }) => {
   const onSuccess = (response) => {

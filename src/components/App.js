@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Timeline from "./Timeline";
 import unsplash from "../api/unsplash";
-import Header from "./Header";
-import AccountLine from "./AccountLine";
 import { BrowserRouter, Route, Switch, useParams } from "react-router-dom";
 import "./app.css";
 import UserContext from "./UserContext";
+import HomePage from "./HomePage";
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -23,20 +21,6 @@ const App = () => {
     setImages(result.data.results);
   };
 
-  useEffect(() => {
-    onSearch("random");
-  }, []);
-
-  const Home = () => (
-    <div>
-      <Header onSearch={onSearch} />
-      <div className="full">
-        <Timeline images={images} />
-        <AccountLine />
-      </div>
-    </div>
-  );
-
   const LightBox = () => {
     let { id } = useParams();
 
@@ -46,7 +30,7 @@ const App = () => {
 
     return (
       <div className="light-box">
-        {foundImage && <img src={foundImage.urls.regular} />}
+        {foundImage && <img src={foundImage.urls.regular} alt="" />}
       </div>
     );
   };
@@ -59,7 +43,12 @@ const App = () => {
             <Route path="/post/:id">
               <LightBox />
             </Route>
-            <Route path="/" component={Home} exact />
+            <Route path="/" exact>
+              <HomePage images={images} onSearch={onSearch} />
+            </Route>
+            <Route path="/search/:term">
+              <HomePage images={images} onSearch={onSearch} />
+            </Route>
           </Switch>
         </div>
       </BrowserRouter>
