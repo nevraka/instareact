@@ -1,10 +1,11 @@
-import React, { useState } from "react";
-import unsplash from "../api/unsplash";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "./app.css";
-import UserContext from "../context/UserContext";
-import HomePage from "./HomePage/index";
-import ImagePage from "./ImagePage";
+import React, { useState } from 'react';
+import unsplash from '../api/unsplash';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import './app.css';
+import UserContext from '../context/UserContext';
+import HomePage from './HomePage/index';
+import ImagePage from './ImagePage';
+import DirectMessage from './DirectMessage';
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -35,6 +36,9 @@ const App = () => {
             </Route>
             <Route path="/search/:term">
               <HomePage images={images} onSearch={onSearch} />
+            </Route>
+            <Route path="/message">
+              <DirectMessage />
             </Route>
           </Switch>
         </div>
