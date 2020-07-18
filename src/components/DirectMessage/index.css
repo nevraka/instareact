@@ -13,3 +13,13 @@
 .list-ui {
   background-color: white;
 }
+.user-image {
+  border-radius: 60px;
+  margin-left: 4px;
+}
+.user-name {
+  display: inline;
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 12px;
+}
