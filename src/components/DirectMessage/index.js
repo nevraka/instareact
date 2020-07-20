@@ -7,11 +7,11 @@ import avatar from '../../image/avatar.png';
 
 const DirectMessage = () => {
   const [users, setUsers] = useState(null);
+  const [selectedUserId, setSelecetedUserId] = useState('');
+
   let currentUser = null;
 
-  if (users && users.length > 0) {
-    currentUser = users[0];
-  }
+  currentUser = users && users.find((user) => user.id === selectedUserId);
 
   useEffect(() => {
     const callAPI = async () => {
@@ -34,17 +34,17 @@ const DirectMessage = () => {
             </div>
           </div>
           <div>
-            <PeopleList users={users} />
+            <PeopleList users={users} setSelecetedUserId={setSelecetedUserId} />
           </div>
         </div>
         <div className="ten wide column">
           <div className="ui vertical fluid menu">
-            {currentUser && currentUser.name}
             <img
               className="avatar"
               src={currentUser ? currentUser.profile_image.medium : avatar}
               alt=""
             />
+            {currentUser && currentUser.name}
           </div>
         </div>
       </div>

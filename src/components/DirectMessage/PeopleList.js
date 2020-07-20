@@ -1,14 +1,20 @@
 import React from 'react';
 import './index.css';
 
-const PeopleList = ({ users }) => {
+const PeopleList = ({ users, setSelecetedUserId }) => {
   return (
     <div className="list-ui">
       <div class="ui middle aligned divided list">
         {users &&
           users.map((user) => {
             return (
-              <div class="item">
+              <div
+                class="item"
+                onClick={() => {
+                  console.log(user.id);
+                  setSelecetedUserId(user.id);
+                }}
+              >
                 <div>
                   <div class="right floated content"></div>
                   <img
