@@ -3,10 +3,12 @@ import './index.css';
 import '../HomePage/Timeline';
 import PeopleList from './PeopleList';
 import unsplash from '../../api/unsplash';
+import avatar from '../../image/avatar.png';
 
 const DirectMessage = () => {
   const [users, setUsers] = useState(null);
   let currentUser = null;
+
   if (users && users.length > 0) {
     currentUser = users[0];
   }
@@ -38,6 +40,11 @@ const DirectMessage = () => {
         <div className="ten wide column">
           <div className="ui vertical fluid menu">
             {currentUser && currentUser.name}
+            <img
+              className="avatar"
+              src={currentUser ? currentUser.profile_image.medium : avatar}
+              alt=""
+            />
           </div>
         </div>
       </div>
