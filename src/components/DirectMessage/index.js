@@ -34,7 +34,7 @@ const DirectMessage = () => {
             </div>
           </div>
           <div>
-            <PeopleList users={users} setSelecetedUserId={setSelecetedUserId} />
+            <PeopleList users={users} selectUser={setSelecetedUserId} />
           </div>
         </div>
         <div className="ten wide column">
