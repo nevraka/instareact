@@ -8,6 +8,7 @@ import avatar from '../../image/avatar.png';
 const DirectMessage = () => {
   const [users, setUsers] = useState(null);
   const [selectedUserId, setSelecetedUserId] = useState('');
+  const [showDetails, setShowDetails] = useState(false);
 
   let currentUser = null;
 
@@ -28,7 +29,7 @@ const DirectMessage = () => {
       <div className="ui two column grid direct">
         <div className="six wide column">
           <div className="ui vertical fluid menu">
-            <div className="header item">
+            <div className="header item direct-icon">
               Direct
               <i class="edit outline icon"></i>
             </div>
@@ -38,14 +39,35 @@ const DirectMessage = () => {
           </div>
         </div>
         <div className="ten wide column">
-          <div className="ui vertical fluid menu">
-            <img
-              className="avatar"
-              src={currentUser ? currentUser.profile_image.medium : avatar}
-              alt=""
-            />
-            {currentUser && currentUser.name}
+          <div className="ui menu">
+            {showDetails ? (
+              <div>Details</div>
+            ) : (
+              <div>
+                <div>
+                  <img
+                    className="avatar"
+                    src={
+                      currentUser ? currentUser.profile_image.medium : avatar
+                    }
+                    alt=""
+                  />
+                </div>
+                <div className="current-user">
+                  {currentUser && currentUser.name}
+                </div>
+              </div>
+            )}
+            <div className="ui secondary right menu">
+              <i
+                className="info circle icon info"
+                onClick={() => {
+                  setShowDetails(!showDetails);
+                }}
+              />
+            </div>
           </div>
+          {showDetails && <div className="show-details">Details</div>}
         </div>
       </div>
     </div>
