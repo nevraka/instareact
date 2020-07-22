@@ -69,18 +69,18 @@ i.info {
 .show-details {
   background-color: white;
 }
-
 .details-box {
   display: grid;
   margin-top: 50px;
   margin-left: 10px;
   font-family: 'Lato', sans-serif;
+  font-weight: 700;
 }
 .details-image {
   border-radius: 60px;
   margin-left: 4px;
-  font-family: 'Lato', sans-serif;
+  margin: 10px 0;
 }
 .user-box > .item {
-  border-top: none;
+  border: none !important;
 }

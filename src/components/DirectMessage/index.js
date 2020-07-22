@@ -4,6 +4,7 @@ import '../HomePage/Timeline';
 import PeopleList from './PeopleList';
 import unsplash from '../../api/unsplash';
 import avatar from '../../image/avatar.png';
+import ConversationDetail from './ConversationDetail';
 
 const DirectMessage = () => {
   const [users, setUsers] = useState(null);
@@ -73,31 +74,10 @@ const DirectMessage = () => {
             </div>
           </div>
           {showDetails && (
-            <div className="ui checkbox show-details">
-              <input type="checkbox" name="example" />
-              <label>Mute Messages</label>
-              <div className="details-box">
-                <div>Members </div>
-                <img
-                  className="details-image"
-                  src={currentUser ? currentUser.profile_image.medium : avatar}
-                  alt=""
-                />
-                {currentUser && currentUser.name}
-                <div class="ui list">
-                  <a
-                    class="item"
-                    onClick={() => {
-                      setShowReport(true);
-                    }}
-                  >
-                    Delete Chat
-                  </a>
-                  <a class="item">Block</a>
-                  <a class="item">Report </a>
-                </div>
-              </div>
-            </div>
+            <ConversationDetail
+              currentUser={currentUser}
+              setShowReport={setShowReport}
+            />
           )}
         </div>
       </div>
