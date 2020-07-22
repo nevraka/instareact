@@ -9,6 +9,7 @@ const DirectMessage = () => {
   const [users, setUsers] = useState(null);
   const [selectedUserId, setSelecetedUserId] = useState('');
   const [showDetails, setShowDetails] = useState(false);
+  const [showReport, setShowReport] = useState(false);
 
   let currentUser = null;
 
@@ -24,13 +25,17 @@ const DirectMessage = () => {
     callAPI();
   }, []);
 
+  if (showReport) {
+    return 'report';
+  }
+
   return (
     <div className="message-box">
       <div className="ui two column grid direct">
         <div className="six wide column">
           <div className="ui vertical fluid menu">
             <div className="header item direct-icon">
-              Direct
+              Direct Message
               <i class="edit outline icon"></i>
             </div>
           </div>
@@ -38,12 +43,12 @@ const DirectMessage = () => {
             <PeopleList users={users} selectUser={setSelecetedUserId} />
           </div>
         </div>
-        <div className="ten wide column">
-          <div className="ui menu">
+        <div className="ten wide column ten-column">
+          <div className="ui right menu ui-menu">
             {showDetails ? (
-              <div>Details</div>
+              <div className="details">Details</div>
             ) : (
-              <div>
+              <div className="block">
                 <div>
                   <img
                     className="avatar"
@@ -67,7 +72,33 @@ const DirectMessage = () => {
               />
             </div>
           </div>
-          {showDetails && <div className="show-details">Details</div>}
+          {showDetails && (
+            <div className="ui checkbox show-details">
+              <input type="checkbox" name="example" />
+              <label>Mute Messages</label>
+              <div className="details-box">
+                <div>Members </div>
+                <img
+                  className="details-image"
+                  src={currentUser ? currentUser.profile_image.medium : avatar}
+                  alt=""
+                />
+                {currentUser && currentUser.name}
+                <div class="ui list">
+                  <a
+                    class="item"
+                    onClick={() => {
+                      setShowReport(true);
+                    }}
+                  >
+                    Delete Chat
+                  </a>
+                  <a class="item">Block</a>
+                  <a class="item">Report </a>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
