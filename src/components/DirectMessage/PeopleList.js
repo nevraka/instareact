@@ -4,13 +4,13 @@ import './index.css';
 const PeopleList = ({ users, selectUser }) => {
   return (
     <div className="list-ui">
-      <div class="ui middle aligned divided list">
+      <div className="ui middle aligned divided list user-box">
         {users &&
           users.map((user) => {
             return (
               <div class="item" onClick={() => selectUser(user.id)}>
-                <div>
-                  <div class="right floated content"></div>
+                <div className="content">
+                  <div class="right floated content "></div>
                   <img
                     src={user.profile_image.medium}
                     alt=""
