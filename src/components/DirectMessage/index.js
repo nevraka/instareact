@@ -10,7 +10,6 @@ const DirectMessage = () => {
   const [users, setUsers] = useState(null);
   const [selectedUserId, setSelecetedUserId] = useState('');
   const [showDetails, setShowDetails] = useState(false);
-  const [showReport, setShowReport] = useState(false);
 
   let currentUser = null;
 
@@ -26,19 +25,14 @@ const DirectMessage = () => {
     callAPI();
   }, []);
 
-  if (showReport) {
-    return 'report';
-  }
-
   return (
     <div className="message-box">
       <div className="ui two column grid direct">
         <div className="six wide column">
-          <div className="ui vertical fluid menu">
-            <div className="header item direct-icon">
-              Direct Message
-              <i class="edit outline icon"></i>
-            </div>
+          <div className="direct-icon">
+            <div className=""></div>
+            <div className="">Direct Message</div>
+            <i class="edit outline icon" />
           </div>
           <div>
             <PeopleList users={users} selectUser={setSelecetedUserId} />
@@ -46,6 +40,7 @@ const DirectMessage = () => {
         </div>
         <div className="ten wide column ten-column">
           <div className="ui right menu ui-menu">
+            <div></div>
             {showDetails ? (
               <div className="details">Details</div>
             ) : (
@@ -73,12 +68,7 @@ const DirectMessage = () => {
               />
             </div>
           </div>
-          {showDetails && (
-            <ConversationDetail
-              currentUser={currentUser}
-              setShowReport={setShowReport}
-            />
-          )}
+          {showDetails && <ConversationDetail currentUser={currentUser} />}
         </div>
       </div>
     </div>
