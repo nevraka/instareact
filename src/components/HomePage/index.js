@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Timeline from './Timeline';
 import AccountLine from './AccountLine';
+import './timeline.css';
 
 const HomePage = ({ images, onSearch }) => {
   let { term } = useParams();

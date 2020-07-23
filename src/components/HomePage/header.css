@@ -1,7 +1,7 @@
 .ui-header {
   display: block;
-  margin-top: 20px;
   background-color: khaki;
+  margin-bottom: 0;
 }
 .logo {
   height: 30px;
