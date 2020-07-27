@@ -4,13 +4,16 @@ import avatar from '../../image/avatar.png';
 import Modal from 'react-modal';
 import Report from './Report';
 import Block from './Block';
+import DeleteChat from './DeleteChat';
 
 const ConversationDetail = ({ currentUser }) => {
   const [showReport, setShowReport] = useState(false);
   const [showBlock, setShowBlock] = useState(false);
+  const [showDeleteChat, setShowDeleteChat] = useState(false);
 
   const closeModalReport = () => setShowReport(false);
   const closeModalBlock = () => setShowBlock(false);
+  const closeModalDeleteChat = () => setShowDeleteChat(false);
 
   return (
     currentUser && (
@@ -26,7 +29,14 @@ const ConversationDetail = ({ currentUser }) => {
           />
           {currentUser.name}
           <div class="ui list">
-            <a class="item">Delete Chat</a>
+            <a
+              class="item"
+              onClick={() => {
+                setShowDeleteChat(true);
+              }}
+            >
+              Delete Chat
+            </a>
             <a
               class="item"
               onClick={() => {
@@ -49,6 +59,15 @@ const ConversationDetail = ({ currentUser }) => {
           className="modal"
           style={{ overlay: { backgroundColor: '#00000088' } }}
           shouldFocusAfterRender={false}
+          isOpen={showDeleteChat}
+          onRequestClose={closeModalDeleteChat}
+        >
+          <DeleteChat closeModalDeleteChat={closeModalDeleteChat} />
+        </Modal>
+        <Modal
+          className="modal"
+          style={{ overlay: { backgroundColor: '#00000088' } }}
+          shouldFocusAfterRender={false}
           isOpen={showReport}
           onRequestClose={closeModalReport}
         >
@@ -64,7 +83,10 @@ const ConversationDetail = ({ currentUser }) => {
           isOpen={showBlock}
           onRequestClose={closeModalBlock}
         >
-          <Block currentUserName={currentUser.name} />
+          <Block
+            currentUserName={currentUser.name}
+            closeModalBlock={closeModalBlock}
+          />
         </Modal>
       </div>
     )
