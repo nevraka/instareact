@@ -11,7 +11,7 @@ const Block = ({ currentUserName, closeModalBlock }) => {
         Instagram won't let them know you blocked them.
       </div>
       <div class="ui middle aligned divided list block-list">
-        <button class="ui basic button">Block</button>
+        <button class="ui basic negative button">Block</button>
         <button class="ui basic button" onClick={closeModalBlock}>
           Cancel
         </button>

@@ -1,9 +1,10 @@
 import React from 'react';
+import './index.css';
 
 const DeleteChat = ({ closeModalDeleteChat }) => {
   return (
-    <div>
-      <div class="ui dividing header block-header">Delete Chat?</div>
+    <div className="delete-chat-page">
+      <div className="ui dividing header delete-chat-header">Delete Chat?</div>
       <div>
         Deleting removes the chat from your inbox, but no one else's inbox.
       </div>

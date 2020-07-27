@@ -57,7 +57,10 @@ const ConversationDetail = ({ currentUser }) => {
         </div>
         <Modal
           className="modal"
-          style={{ overlay: { backgroundColor: '#00000088' } }}
+          style={{
+            overlay: { backgroundColor: '#00000088' },
+            content: { borderRadius: '5px' },
+          }}
           shouldFocusAfterRender={false}
           isOpen={showDeleteChat}
           onRequestClose={closeModalDeleteChat}
@@ -66,7 +69,10 @@ const ConversationDetail = ({ currentUser }) => {
         </Modal>
         <Modal
           className="modal"
-          style={{ overlay: { backgroundColor: '#00000088' } }}
+          style={{
+            overlay: { backgroundColor: '#00000088' },
+            content: { borderRadius: '5px' },
+          }}
           shouldFocusAfterRender={false}
           isOpen={showReport}
           onRequestClose={closeModalReport}
@@ -78,7 +84,10 @@ const ConversationDetail = ({ currentUser }) => {
         </Modal>
         <Modal
           className="modal"
-          style={{ overlay: { backgroundColor: '#00000088' } }}
+          style={{
+            overlay: { backgroundColor: '#00000088' },
+            content: { borderRadius: '5px' },
+          }}
           shouldFocusAfterRender={false}
           isOpen={showBlock}
           onRequestClose={closeModalBlock}

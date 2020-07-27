@@ -107,7 +107,8 @@ i.info {
 }
 .report {
   display: block;
-  font-size: small;
+  font-size: 14px;
+  margin-left: 20px;
   border: hidden;
 }
 .x-icon {
@@ -121,7 +122,6 @@ i.info {
   justify-content: space-between;
 }
 .report-options {
-  font-family: 'Lato', sans-serif;
   display: grid;
 }
 .modal {
@@ -131,6 +131,9 @@ i.info {
   margin-bottom: 200px;
   background-color: white;
 }
+.report-header {
+  padding-top: 20px !important;
+}
 .block-page {
   margin-left: 20px;
 }
@@ -139,4 +142,10 @@ i.info {
 }
 .block-list {
   padding-bottom: 20px !important;
+}
+.delete-chat-page {
+  margin-left: 20px;
+}
+.delete-chat-header {
+  padding-top: 20px !important;
 }

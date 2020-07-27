@@ -4,7 +4,7 @@ import './index.css';
 const Report = ({ setShowReport, currentUserName }) => {
   return (
     <div className="report">
-      <h3 className="ui dividing header">
+      <h3 className="ui dividing header report-header">
         Report
         <i
           className="x icon x-icon"
@@ -17,12 +17,12 @@ const Report = ({ setShowReport, currentUserName }) => {
         Choose a reason for reporting this account. We won't tell&nbsp;
         {currentUserName}&nbsp;who reported them.
       </div>
-      <div className="ui relaxed list report-options">
-        <button class="ui basic button">I just don't like it</button>
-        <button class="ui basic button">It's spam</button>
-        <button class="ui basic button">Nudity or pornography</button>
-        <button class="ui basic button">Hate speech or symbol</button>
-        <button class="ui basic button">Other</button>
+      <div className="ui link list report-options">
+        <a class="active item">I just don't like it</a>
+        <a class="active item">It's spam</a>
+        <a class="active item">Nudity or pornography</a>
+        <a class="active item">Hate speech or symbol</a>
+        <a class="active item">Other</a>
       </div>
     </div>
   );
