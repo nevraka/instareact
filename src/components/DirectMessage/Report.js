@@ -18,11 +18,11 @@ const Report = ({ setShowReport, currentUserName }) => {
         {currentUserName}&nbsp;who reported them.
       </div>
       <div className="ui relaxed list report-options">
-        <a className="item">I just don't like it</a>
-        <a className="item">It's spam</a>
-        <a className="item">Nudity or pornography</a>
-        <a className="item">Hate speech or symbol</a>
-        <a className="item">Other</a>
+        <button class="ui basic button">I just don't like it</button>
+        <button class="ui basic button">It's spam</button>
+        <button class="ui basic button">Nudity or pornography</button>
+        <button class="ui basic button">Hate speech or symbol</button>
+        <button class="ui basic button">Other</button>
       </div>
     </div>
   );
