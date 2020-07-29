@@ -6,6 +6,7 @@ import unsplash from '../../api/unsplash';
 import avatar from '../../image/avatar.png';
 import ConversationDetail from './ConversationDetail';
 import { useParams } from 'react-router-dom';
+import _ from 'lodash';
 
 const DirectMessage = () => {
   const [users, setUsers] = useState(null);
@@ -21,7 +22,10 @@ const DirectMessage = () => {
       const result = await unsplash.get(
         `/search/photos?query=people&per_page=20`
       );
-      setUsers(result.data.results.map((item) => item.user));
+      const allUsers = result.data.results.map((item) => item.user);
+      const uniqueUsers = _.uniqBy(allUsers, (u) => u.id);
+
+      setUsers(uniqueUsers);
     };
     callAPI();
   }, []);
