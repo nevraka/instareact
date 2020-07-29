@@ -5,15 +5,16 @@ import PeopleList from './PeopleList';
 import unsplash from '../../api/unsplash';
 import avatar from '../../image/avatar.png';
 import ConversationDetail from './ConversationDetail';
+import { useParams } from 'react-router-dom';
 
 const DirectMessage = () => {
   const [users, setUsers] = useState(null);
-  const [selectedUserId, setSelecetedUserId] = useState('');
   const [showDetails, setShowDetails] = useState(false);
 
   let currentUser = null;
+  const { userId } = useParams();
 
-  currentUser = users && users.find((user) => user.id === selectedUserId);
+  currentUser = users && users.find((user) => user.id === userId);
 
   useEffect(() => {
     const callAPI = async () => {
@@ -35,7 +36,7 @@ const DirectMessage = () => {
             <i class="edit outline icon" />
           </div>
           <div>
-            <PeopleList users={users} selectUser={setSelecetedUserId} />
+            <PeopleList users={users} />
           </div>
         </div>
         <div className="ten wide column ten-column">
