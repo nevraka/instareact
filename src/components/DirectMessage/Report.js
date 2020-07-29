@@ -17,13 +17,30 @@ const Report = ({ setShowReport, currentUserName }) => {
         Choose a reason for reporting this account. We won't tell&nbsp;
         {currentUserName}&nbsp;who reported them.
       </div>
-      <div className="ui link list report-options">
-        <a class="active item">I just don't like it</a>
-        <a class="active item">It's spam</a>
-        <a class="active item">Nudity or pornography</a>
-        <a class="active item">Hate speech or symbol</a>
-        <a class="active item">Other</a>
-      </div>
+      <ul className="ui middle aligned selection list report-options">
+        <div className="item-css">
+          <div class="active item">
+            I just don't like it
+            <i className="chevron right icon right-icon"></i>
+          </div>
+          <div class="active item">
+            It's spam
+            <i className="chevron right icon right-icon"></i>
+          </div>
+          <div class="active item">
+            Nudity or pornography
+            <i className="chevron right icon right-icon"></i>
+          </div>
+          <div class="active item">
+            Hate speech or symbol
+            <i className="chevron right icon right-icon"></i>
+          </div>
+          <div class="active item">
+            Other
+            <i className="chevron right icon right-icon"></i>
+          </div>
+        </div>
+      </ul>
     </div>
   );
 };

@@ -124,6 +124,15 @@ i.info {
 .report-options {
   display: grid;
 }
+.item-css {
+  background-color: none;
+  padding-bottom: 20px;
+  margin-left: -15px;
+  line-height: 2em;
+}
+.right-icon {
+  float: right;
+}
 .modal {
   margin-top: 200px;
   margin-left: 160px;
