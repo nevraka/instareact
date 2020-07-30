@@ -158,3 +158,29 @@ i.info {
 .delete-chat-header {
   padding-top: 20px !important;
 }
+.sub-header {
+  font-weight: normal;
+}
+.message-container {
+  text-align: center;
+  position: absolute;
+}
+.new-message {
+  display: block;
+  font-size: 14px;
+  margin-left: 20px;
+  border: hidden;
+}
+.message-users {
+  display: inline-flex;
+}
+.new-message-header {
+  margin-bottom: 20px !important;
+}
+.users {
+  margin-left: 10px;
+}
+.message-x-icon {
+  float: left;
+  margin-right: 20px;
+}

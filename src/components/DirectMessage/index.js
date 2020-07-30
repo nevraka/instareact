@@ -5,12 +5,14 @@ import PeopleList from './PeopleList';
 import unsplash from '../../api/unsplash';
 import avatar from '../../image/avatar.png';
 import ConversationDetail from './ConversationDetail';
+import NewMessage from './NewMessage';
 import { useParams } from 'react-router-dom';
 import _ from 'lodash';
 
 const DirectMessage = () => {
   const [users, setUsers] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
+  const [isNewMessageOpen, setIsNewMessageOpen] = useState(false);
 
   let currentUser = null;
   const { userId } = useParams();
@@ -19,6 +21,7 @@ const DirectMessage = () => {
 
   useEffect(() => {
     const callAPI = async () => {
+      console.log('callAPI');
       const result = await unsplash.get(
         `/search/photos?query=people&per_page=20`
       );
@@ -30,6 +33,10 @@ const DirectMessage = () => {
     callAPI();
   }, []);
 
+  useEffect(() => {
+    setShowDetails(false);
+  }, [userId]);
+
   return (
     <div className="message-box">
       <div className="ui two column grid direct">
@@ -37,7 +44,10 @@ const DirectMessage = () => {
           <div className="direct-icon">
             <div className=""></div>
             <div className="">Direct Message</div>
-            <i class="edit outline icon" />
+            <i
+              class="edit outline icon"
+              onClick={() => setIsNewMessageOpen(true)}
+            />
           </div>
           <div>
             <PeopleList users={users} />
@@ -45,7 +55,6 @@ const DirectMessage = () => {
         </div>
         <div className="ten wide column ten-column">
           <div className="ui right menu ui-menu">
-            <div></div>
             {showDetails ? (
               <div className="details">Details</div>
             ) : (
@@ -73,7 +82,34 @@ const DirectMessage = () => {
               />
             </div>
           </div>
-          {showDetails && <ConversationDetail currentUser={currentUser} />}
+          <div>
+            {currentUser ? (
+              showDetails && <ConversationDetail currentUser={currentUser} />
+            ) : (
+              <div>
+                <div className="message-container">
+                  <h2 class="ui center aligned icon header">
+                    <i class="paper plane outline icon" />
+                    Your Messages
+                  </h2>
+                  <h3 class="sub header sub-header">
+                    Send private photos and messages to a friend or group.
+                  </h3>
+                  <button
+                    class="blue ui button"
+                    onClick={() => setIsNewMessageOpen(true)}
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+          <NewMessage
+            users={users}
+            isNewMessageOpen={isNewMessageOpen}
+            setIsNewMessageOpen={setIsNewMessageOpen}
+          />
         </div>
       </div>
     </div>
