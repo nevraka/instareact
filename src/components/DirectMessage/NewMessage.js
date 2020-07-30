@@ -1,27 +1,21 @@
 import React, { useState } from 'react';
 import './index.css';
 import Modal from 'react-modal';
-import { useHistory } from 'react-router-dom';
 
 const NewMessage = ({ isNewMessageOpen, setIsNewMessageOpen, users }) => {
+  const [filterText, setFilterText] = useState('');
+
   const closeModalNewMessage = () => setIsNewMessageOpen(false);
 
-  const [messageList, setMessageList] = useState('');
-  const history = useHistory();
-
+  const filteredUsers =
+    users &&
+    users.filter((user) => {
+      return user.name.toLowerCase().includes(filterText.toLowerCase());
+    });
   const handleOnChange = (event) => {
-    setMessageList(event.target.value);
+    setFilterText(event.target.value);
   };
 
-  const handleClick = () => {
-    history.push(`/search/${messageList}`);
-  };
-
-  const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      handleClick();
-    }
-  };
   return (
     <Modal
       className="modal"
@@ -46,15 +40,10 @@ const NewMessage = ({ isNewMessageOpen, setIsNewMessageOpen, users }) => {
         ></i>
         <div className="ui dividing header new-message-header">New Message</div>
       </div>
-      <input
-        type="text"
-        value={messageList}
-        onChange={handleOnChange}
-        onKeyDown={handleKeyDown}
-      />
+      <input type="text" value={filterText} onChange={handleOnChange} />
       <div>
-        {users &&
-          users.map((user) => {
+        {filteredUsers &&
+          filteredUsers.map((user) => {
             return (
               <div class="item">
                 <div className="content">
