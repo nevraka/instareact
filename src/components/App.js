@@ -27,25 +27,23 @@ const App = () => {
   return (
     <UserContext.Provider value={user}>
       <BrowserRouter>
-        <div>
-          <Switch>
-            <Route path="/post/:id">
-              <ImagePage images={images} />
-            </Route>
-            <Route path="/" exact>
-              <HomePage images={images} onSearch={onSearch} />
-            </Route>
-            <Route path="/search/:term">
-              <HomePage images={images} onSearch={onSearch} />
-            </Route>
-            <Route path="/message/:userId">
-              <DirectMessage />
-            </Route>
-            <Route path="/message/">
-              <DirectMessage />
-            </Route>
-          </Switch>
-        </div>
+        <Switch>
+          <Route path="/post/:id">
+            <ImagePage images={images} />
+          </Route>
+          <Route path="/" exact>
+            <HomePage images={images} onSearch={onSearch} />
+          </Route>
+          <Route path="/search/:term">
+            <HomePage images={images} onSearch={onSearch} />
+          </Route>
+          <Route path="/message/:userId">
+            <DirectMessage />
+          </Route>
+          <Route path="/message/">
+            <DirectMessage />
+          </Route>
+        </Switch>
       </BrowserRouter>
     </UserContext.Provider>
   );

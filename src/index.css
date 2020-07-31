@@ -5,6 +5,9 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+#root {
+  height: 100%;
+}
 input {
   font-family: monospace;
 }

@@ -7,6 +7,7 @@ import avatar from '../../image/avatar.png';
 import ConversationDetail from './ConversationDetail';
 import NewMessage from './NewMessage';
 import { useParams } from 'react-router-dom';
+import MessageTheread from './MessageThread';
 import _ from 'lodash';
 
 const DirectMessage = () => {
@@ -39,19 +40,17 @@ const DirectMessage = () => {
 
   return (
     <div className="message-box">
-      <div className="ui two column grid direct">
-        <div className="six wide column">
+      <div className="ui two column grid direct two-column">
+        <div className="six wide column six-column">
           <div className="direct-icon">
-            <div className=""></div>
-            <div className="">Direct Message</div>
+            <div className="direct-message"></div>
+            <div>Direct Message</div>
             <i
-              class="edit outline icon"
+              className="edit outline icon"
               onClick={() => setIsNewMessageOpen(true)}
             />
           </div>
-          <div>
-            <PeopleList users={users} />
-          </div>
+          <PeopleList users={users} />
         </div>
         <div className="ten wide column ten-column">
           <div className="ui right menu ui-menu">
@@ -110,6 +109,7 @@ const DirectMessage = () => {
             isNewMessageOpen={isNewMessageOpen}
             setIsNewMessageOpen={setIsNewMessageOpen}
           />
+          <MessageTheread />
         </div>
       </div>
     </div>

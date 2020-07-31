@@ -10,16 +10,15 @@ const PeopleList = ({ users }) => {
           users.map((user) => {
             return (
               <Link to={`/message/${user.id}`}>
-                <div class="item">
-                  <div className="content">
-                    <div class="right floated content "></div>
+                <div className="person">
+                  <div className="user-image-container">
                     <img
                       src={user.profile_image.medium}
                       alt=""
                       className="user-image"
                     />
-                    <div className="content user-name">{user.name}</div>
                   </div>
+                  <div className="user-name">{user.name}</div>
                 </div>
               </Link>
             );
