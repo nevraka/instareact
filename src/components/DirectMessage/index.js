@@ -7,7 +7,7 @@ import avatar from '../../image/avatar.png';
 import ConversationDetail from './ConversationDetail';
 import NewMessage from './NewMessage';
 import { useParams } from 'react-router-dom';
-import MessageTheread from './MessageThread';
+import MessageThread from './MessageThread';
 import _ from 'lodash';
 
 const DirectMessage = () => {
@@ -109,7 +109,7 @@ const DirectMessage = () => {
             isNewMessageOpen={isNewMessageOpen}
             setIsNewMessageOpen={setIsNewMessageOpen}
           />
-          <MessageTheread />
+          <MessageThread />
         </div>
       </div>
     </div>

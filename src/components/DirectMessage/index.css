@@ -205,8 +205,19 @@ i.info {
 .message-input {
   margin-top: auto;
   align-self: flex-end;
+  width: 100%;
+  max-width: inherit !important;
 }
 .input-text {
   width: 100%;
-  max-width: inherit;
+  max-width: inherit !important;
+}
+.chat {
+}
+.chat > div {
+  margin: 5px 8px;
+  padding: 8px 15px;
+  background-color: palevioletred;
+  border-radius: 15px;
+  color: white;
 }
