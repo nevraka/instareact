@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
-import "./post.css";
-import Comments from "./Comments";
-import Buttons from "./Buttons";
-import AddTags from "./AddTags";
-import CommentInput from "./CommentInput";
-import { format } from "date-fns";
+import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import './post.css';
+import Comments from './Comments';
+import Buttons from './Buttons';
+import AddTags from './AddTags';
+import CommentInput from './CommentInput';
+import { format } from 'date-fns';
 
 const Post = ({
   id,
@@ -51,7 +51,9 @@ const Post = ({
           <div className="location">{loc}</div>
         </div>
         <div className="paper-plane-icon">
-          <i className="paper plane outline icon"></i>
+          <Link to="/message/">
+            <i className="paper plane outline icon"></i>
+          </Link>
         </div>
       </div>
       <Link to={`/post/${id}`}>
@@ -59,7 +61,7 @@ const Post = ({
       </Link>
       <span className="right-floated">{`Created at: ${format(
         date,
-        "dd MMM yyyy"
+        'dd MMM yyyy'
       )}`}</span>
       <Buttons
         liked={liked}
@@ -68,7 +70,7 @@ const Post = ({
         onToggleLike={onToggleLike}
         onBookmark={onBookmark}
       />
-      <div className="count">{likeCount + " likes"}</div>
+      <div className="count">{likeCount + ' likes'}</div>
       {description && <div className="description-css">{description}</div>}
       <AddTags tags={tags} />
       <Comments comments={comments} onToggleShowInput={onToggleShowInput} />
