@@ -10,9 +10,11 @@ const Header = () => {
   const user = useContext(UserContext);
 
   return (
-    <h2 className="ui-header">
+    <div className="ui-header">
       <div className="header-items">
-        <img className="logo" src={logo} alt="" />
+        <Link to="/">
+          <img className="logo" src={logo} alt="" />
+        </Link>
         <SearchBox />
         <div className="icon-header">
           <Link to="/">
@@ -30,7 +32,7 @@ const Header = () => {
           <LoginButton setProfile={user.setProfile} />
         )}
       </div>
-    </h2>
+    </div>
   );
 };
 

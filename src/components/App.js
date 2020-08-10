@@ -6,7 +6,7 @@ import UserContext from '../context/UserContext';
 import HomePage from './HomePage/index';
 import ImagePage from './ImagePage';
 import DirectMessage from './DirectMessage';
-import PeopleList from './DirectMessage/PeopleList';
+import Header from './HomePage/Header';
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -32,15 +32,19 @@ const App = () => {
             <ImagePage images={images} />
           </Route>
           <Route path="/" exact>
+            <Header />
             <HomePage images={images} onSearch={onSearch} />
           </Route>
           <Route path="/search/:term">
+            <Header />
             <HomePage images={images} onSearch={onSearch} />
           </Route>
           <Route path="/message/:userId">
+            <Header />
             <DirectMessage />
           </Route>
           <Route path="/message/">
+            <Header />
             <DirectMessage />
           </Route>
         </Switch>

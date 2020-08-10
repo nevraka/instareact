@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Header from './Header';
 import Timeline from './Timeline';
 import AccountLine from './AccountLine';
 import './timeline.css';
@@ -14,7 +13,6 @@ const HomePage = ({ images, onSearch }) => {
 
   return (
     <div>
-      <Header />
       <div className="full">
         <Timeline images={images} />
         <AccountLine />
