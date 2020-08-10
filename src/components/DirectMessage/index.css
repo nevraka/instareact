@@ -212,8 +212,6 @@ i.info {
   width: 100%;
   max-width: inherit !important;
 }
-.chat {
-}
 .chat > div {
   margin: 5px 8px;
   padding: 8px 15px;

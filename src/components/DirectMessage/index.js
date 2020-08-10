@@ -14,11 +14,18 @@ const DirectMessage = () => {
   const [users, setUsers] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
   const [isNewMessageOpen, setIsNewMessageOpen] = useState(false);
+  const [inputText, setInputText] = useState('');
 
-  let currentUser = null;
   const { userId } = useParams();
-
+  let currentUser = null;
   currentUser = users && users.find((user) => user.id === userId);
+
+  if (currentUser && !currentUser.messages) {
+    currentUser.messages = [];
+  }
+  const addMessage = (inputText) => {
+    currentUser.messages = [...currentUser.messages, inputText];
+  };
 
   useEffect(() => {
     const callAPI = async () => {
@@ -40,7 +47,7 @@ const DirectMessage = () => {
 
   return (
     <div className="message-box">
-      <div className="ui two column grid direct two-column">
+      <div className="ui two column padded grid direct two-column">
         <div className="six wide column six-column">
           <div className="direct-icon">
             <div className="direct-message"></div>
@@ -109,7 +116,12 @@ const DirectMessage = () => {
             isNewMessageOpen={isNewMessageOpen}
             setIsNewMessageOpen={setIsNewMessageOpen}
           />
-          <MessageThread />
+          <MessageThread
+            inputText={inputText}
+            setInputText={setInputText}
+            messages={currentUser && currentUser.messages}
+            addMessage={addMessage}
+          />
         </div>
       </div>
     </div>

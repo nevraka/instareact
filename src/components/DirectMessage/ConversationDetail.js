@@ -33,6 +33,7 @@ const ConversationDetail = ({ currentUser }) => {
               class="item"
               onClick={() => {
                 setShowDeleteChat(true);
+                return false;
               }}
             >
               Delete Chat
@@ -41,6 +42,7 @@ const ConversationDetail = ({ currentUser }) => {
               class="item"
               onClick={() => {
                 setShowBlock(true);
+                return false;
               }}
             >
               Block
@@ -49,6 +51,7 @@ const ConversationDetail = ({ currentUser }) => {
               class="item"
               onClick={() => {
                 setShowReport(true);
+                return false;
               }}
             >
               Report

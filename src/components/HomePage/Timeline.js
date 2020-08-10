@@ -1,6 +1,6 @@
-import React from "react";
-import "./timeline.css";
-import Post from "../Post";
+import React from 'react';
+import './timeline.css';
+import Post from '../Post';
 
 const Timeline = ({ images }) => (
   <div className="timeline">

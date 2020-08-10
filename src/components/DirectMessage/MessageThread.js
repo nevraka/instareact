@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.css';
 
-const MessageThread = () => {
-  const [inputText, setInputText] = useState('');
-  const [messages, setMessages] = useState([]);
-
+const MessageThread = ({ inputText, setInputText, messages, addMessage }) => {
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
-      setMessages([...messages, inputText]);
+      addMessage(inputText);
       setInputText('');
     }
   };
@@ -17,12 +14,15 @@ const MessageThread = () => {
 
   return (
     <div className="ui transparent placeholder segment message-screen">
-      <div className="ui icon header">No Message</div>
-      <div className="chat">
-        {messages.map((message) => (
-          <div>{message}</div>
-        ))}
-      </div>
+      {!messages || messages.length === 0 ? (
+        <div className="ui icon header">No Message</div>
+      ) : (
+        <div className="chat">
+          {messages.map((message) => (
+            <div>{message}</div>
+          ))}
+        </div>
+      )}
       <div className="ui small icon input message-input">
         <input
           className="input-text"
