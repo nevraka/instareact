@@ -46,21 +46,23 @@ const DirectMessage = () => {
   }, [userId]);
 
   return (
-    <div className="message-box">
-      <div className="ui two column padded grid direct two-column">
-        <div className="six wide column six-column">
+    <div className="message-box full-height">
+      <div className="ui two column padded grid direct two-column full-height">
+        <div className="six wide column six-column full-height">
           <div className="direct-icon">
             <div className="direct-message"></div>
             <div>Direct Message</div>
-            <i
-              className="edit outline icon"
+            <div
+              style={{ marginRight: '16px' }}
               onClick={() => setIsNewMessageOpen(true)}
-            />
+            >
+              <i className="edit outline fitted icon" />
+            </div>
           </div>
           <PeopleList users={users} />
         </div>
-        <div className="ten wide column ten-column">
-          <div className="ui right menu ui-menu">
+        <div className="ten wide column ten-column full-height">
+          <div className="ui right ui-menu">
             {showDetails ? (
               <div className="details">Details</div>
             ) : (
@@ -79,7 +81,7 @@ const DirectMessage = () => {
                 </div>
               </div>
             )}
-            <div className="ui secondary right menu">
+            <div className="ui secondary right">
               <i
                 className="info circle icon info"
                 onClick={() => {
@@ -88,29 +90,11 @@ const DirectMessage = () => {
               />
             </div>
           </div>
-          <div>
-            {currentUser ? (
-              showDetails && <ConversationDetail currentUser={currentUser} />
-            ) : (
-              <div>
-                <div className="message-container">
-                  <h2 class="ui center aligned icon header">
-                    <i class="paper plane outline icon" />
-                    Your Messages
-                  </h2>
-                  <h3 class="sub header sub-header">
-                    Send private photos and messages to a friend or group.
-                  </h3>
-                  <button
-                    class="blue ui button"
-                    onClick={() => setIsNewMessageOpen(true)}
-                  >
-                    Send Message
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
+          {currentUser && showDetails && (
+            <div>
+              <ConversationDetail currentUser={currentUser} />
+            </div>
+          )}
           <NewMessage
             users={users}
             isNewMessageOpen={isNewMessageOpen}
@@ -121,6 +105,7 @@ const DirectMessage = () => {
             setInputText={setInputText}
             messages={currentUser && currentUser.messages}
             addMessage={addMessage}
+            setIsNewMessageOpen={setIsNewMessageOpen}
           />
         </div>
       </div>

@@ -2,7 +2,7 @@
   flex-direction: row;
   justify-content: center;
   background-color: white;
-  height: 100%;
+  height: calc(100% - 63px);
   width: 100%;
   width: auto;
 }
@@ -30,7 +30,6 @@
   font-size: medium;
   text-align: center;
   height: 60px;
-  flex: 1;
   display: flex;
   align-items: center;
   border: 1px solid lightgray;
@@ -39,7 +38,7 @@
   font-weight: 700;
 }
 .user-image-container {
-  margin: 4px 13px 4px 5px;
+  padding: 4px 13px 4px 5px;
 }
 .person {
   display: flex;
@@ -61,12 +60,10 @@
 }
 i.info {
   font-size: large;
-  margin-top: 10px;
   margin-right: 10px;
 }
 .current-user {
   display: inline;
-  margin-top: 10px;
   margin-left: 12px;
   font-size: unset;
   font-family: 'Lato', sans-serif !important;
@@ -75,21 +72,19 @@ i.info {
 }
 .block {
   display: flex;
-  margin-top: 5px;
-  margin-left: 12px;
-  height: 100%;
+  align-items: center;
 }
 .ui-menu {
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   font-size: medium;
   text-align: center;
   height: 60px;
-  flex: 1;
   display: flex;
   align-items: center;
   border: 1px solid lightgray;
   justify-content: space-between;
   border-radius: 0 !important;
+  margin-bottom: 0 !important;
 }
 .details {
   font-weight: 700;
@@ -175,8 +170,11 @@ i.info {
 }
 .message-container {
   text-align: center;
-  position: absolute;
   height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .new-message {
   display: block;
@@ -200,7 +198,10 @@ i.info {
   margin-right: 20px;
 }
 .message-screen {
-  height: 100%;
+  margin-top: 0 !important;
+  display: flex !important;
+  flex: 1;
+  flex-direction: column;
 }
 .message-input {
   margin-top: auto;

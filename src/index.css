@@ -6,12 +6,20 @@ body {
 }
 
 #root {
+  display: flex;
   height: 100%;
+  flex-direction: column;
 }
 input {
   font-family: monospace;
 }
-
 a {
   color: inherit;
+}
+.full-height {
+  display: flex !important;
+  flex: 1;
+  flex-direction: column;
+  margin: 0 !important;
+  padding: 0 !important;
 }

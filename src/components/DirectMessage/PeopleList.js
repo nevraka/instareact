@@ -4,8 +4,8 @@ import './index.css';
 
 const PeopleList = ({ users }) => {
   return (
-    <div className="list-ui">
-      <div className="ui middle aligned divided list user-box">
+    <div className="list-ui full-height">
+      <div className="ui middle aligned divided list user-box full-height">
         {users &&
           users.map((user) => {
             return (
