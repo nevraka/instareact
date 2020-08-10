@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './index.css';
+import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 
 const NewMessage = ({ isNewMessageOpen, setIsNewMessageOpen, users }) => {
@@ -45,18 +46,20 @@ const NewMessage = ({ isNewMessageOpen, setIsNewMessageOpen, users }) => {
         {filteredUsers &&
           filteredUsers.map((user) => {
             return (
-              <div class="item">
-                <div className="content">
-                  <div className="message-users">
-                    <img
-                      src={user.profile_image.small}
-                      alt=""
-                      className="user-image"
-                    />
-                    <div className="users">{user.name}</div>
+              <Link to={`/message/${user.id}`} onClick={closeModalNewMessage}>
+                <div class="item">
+                  <div className="content">
+                    <div className="message-users">
+                      <img
+                        src={user.profile_image.small}
+                        alt=""
+                        className="user-image"
+                      />
+                      <div className="users">{user.name}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             );
           })}
       </div>
