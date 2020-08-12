@@ -23,7 +23,9 @@ const Header = () => {
           <Link to="/message">
             <i className="paper plane outline icon" />
           </Link>
-          <i className="compass icon"></i>
+          <Link to="/explore">
+            <i className="compass icon"></i>
+          </Link>
           <i className="heart icon"></i>
         </div>
         {user.profile.googleId ? (

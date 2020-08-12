@@ -7,6 +7,7 @@ import HomePage from './HomePage/index';
 import ImagePage from './ImagePage';
 import DirectMessage from './DirectMessage';
 import Header from './HomePage/Header';
+import Explore from './Explore';
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -46,6 +47,10 @@ const App = () => {
           <Route path="/message/">
             <Header />
             <DirectMessage />
+          </Route>
+          <Route path="/explore/">
+            <Header />
+            <Explore />
           </Route>
         </Switch>
       </BrowserRouter>
