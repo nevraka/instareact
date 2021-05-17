@@ -8,6 +8,7 @@ import ImagePage from './ImagePage';
 import DirectMessage from './DirectMessage';
 import Header from './HomePage/Header';
 import Explore from './Explore';
+import 'github-fork-ribbon-css/gh-fork-ribbon.css';
 
 const App = () => {
   const [images, setImages] = useState([]);
@@ -54,6 +55,14 @@ const App = () => {
           </Route>
         </Switch>
       </BrowserRouter>
+      <a
+        class="github-fork-ribbon right-bottom fixed"
+        href="https://github.com/nevraka/githubjobs"
+        data-ribbon="Fork me on GitHub"
+        title="Fork me on GitHub"
+      >
+        Fork me on GitHub
+      </a>
     </UserContext.Provider>
   );
 };
