@@ -30,6 +30,7 @@ const ConversationDetail = ({ currentUser }) => {
           {currentUser.name}
           <div class="ui list">
             <a
+              href="/#"
               class="item"
               onClick={() => {
                 setShowDeleteChat(true);
@@ -39,6 +40,7 @@ const ConversationDetail = ({ currentUser }) => {
               Delete Chat
             </a>
             <a
+              href="/#"
               class="item"
               onClick={() => {
                 setShowBlock(true);
@@ -48,6 +50,7 @@ const ConversationDetail = ({ currentUser }) => {
               Block
             </a>
             <a
+              href="/#"
               class="item"
               onClick={() => {
                 setShowReport(true);
