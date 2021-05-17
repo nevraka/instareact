@@ -57,7 +57,7 @@ const App = () => {
       </BrowserRouter>
       <a
         class="github-fork-ribbon right-bottom fixed"
-        href="https://github.com/nevraka/githubjobs"
+        href="https://github.com/nevraka/instareact"
         data-ribbon="Fork me on GitHub"
         title="Fork me on GitHub"
       >
